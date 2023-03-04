@@ -17,7 +17,7 @@ while [[ ! $REPLY =~ ^[nNyY]$ ]] ; do read -rp "Start installation? [y/n] "; don
 [[ $REPLY =~ ^[nN]$ ]] && exit 0
 
 # Install required Git submodules
-if [[ ! (-d nginx/.git && -d nginx-njs/.git && -d openssl/.git) ]] ; then
+if [[ ! (-e nginx/.git && -e nginx-njs/.git && -e openssl/.git) ]] ; then
   echo -e "\nInitializing Git submodules...\n"
   git submodule update --init
 
