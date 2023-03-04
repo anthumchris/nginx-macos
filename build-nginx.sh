@@ -20,6 +20,10 @@ while [[ ! $REPLY =~ ^[nNyY]$ ]] ; do read -rp "Start installation? [y/n] "; don
 if [[ ! (-d nginx/.git && -d nginx-njs/.git && -d openssl/.git) ]] ; then
   echo -e "\nInitializing Git submodules...\n"
   git submodule update --init
+
+  echo -e "\nUpdating Git submodules to latest versions...\n"
+  # Update submodules to latest version and print version
+  git submodule foreach 'git submodule update --remote --merge; git describe --tags; echo'
 fi
 
 echo -e "\nConfiguring Nginx...\n"
