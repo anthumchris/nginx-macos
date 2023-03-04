@@ -1,4 +1,4 @@
-Builds and installs the latest versions of Nginx and the [njs scripting language](https://nginx.org/en/docs/njs/) for MacOS.
+Builds and installs the latest versions of Nginx and the [Nginx JavaScript module (njs)](https://nginx.org/en/docs/njs/) for MacOS.
 
 Explicitly supports njs JavaScript modules [`ngx_http_js_module`](https://nginx.org/en/docs/http/ngx_http_js_module.html) and [`ngx_stream_js_module`](https://nginx.org/en/docs/stream/ngx_stream_js_module.html).
 
