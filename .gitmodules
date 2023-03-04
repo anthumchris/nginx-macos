@@ -1,0 +1,9 @@
+[submodule "nginx"]
+	path = nginx
+	url = https://github.com/nginx/nginx
+[submodule "nginx-njs"]
+	path = nginx-njs
+	url = https://github.com/nginx/njs
+[submodule "openssl"]
+	path = openssl
+	url = https://github.com/openssl/openssl
