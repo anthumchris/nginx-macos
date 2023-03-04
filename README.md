@@ -5,6 +5,6 @@ Explicitly supports njs JavaScript modules [`ngx_http_js_module`](https://nginx.
 ## Usage
 
 ```sh
-./build-nginx.sh        # Compile and install Nginx
+./install-nginx.sh      # Compile and install Nginx
 build/nginx/sbin/nginx  # Start Nginx server
 ```
