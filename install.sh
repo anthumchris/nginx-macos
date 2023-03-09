@@ -16,8 +16,13 @@ echo -e "    $INSTALL_PREFIX\n"
 while [[ ! $REPLY =~ ^[nNyY]$ ]] ; do read -rp "Start installation? [y/n] "; done
 [[ $REPLY =~ ^[nN]$ ]] && exit 0
 
+
+NGINX=src/nginx
+NJS=src/nginx-njs
+OPENSSL=src/openssl
+
 # Install required Git submodules
-if [[ ! (-e nginx/.git && -e nginx-njs/.git && -e openssl/.git) ]] ; then
+if [[ ! (-e $NGINX/.git && -e $NJS/.git && -e $OPENSSL/.git) ]] ; then
   echo -e "\nInitializing Git submodules...\n"
   git submodule update --init
 
@@ -27,7 +32,7 @@ if [[ ! (-e nginx/.git && -e nginx-njs/.git && -e openssl/.git) ]] ; then
 fi
 
 echo -e "\nConfiguring Nginx...\n"
-cd nginx
+cd src/nginx
 ln -sf auto/configure configure
 ./configure \
   --add-module=../nginx-njs/nginx \
@@ -46,7 +51,7 @@ make 1>/dev/null --quiet  --jobs=`sysctl -n hw.ncpu` # Faster, parallel build us
 echo -e "\nInstalling..."
 make --quiet install
 
-cd .. 
+cd ../..
 
 # Remove newly-created submodule files that Git detects as "Changes not staged for commit"
 # Disable cleanup for repeated builds or changes in Nginx ./configure
