@@ -6,4 +6,4 @@
 	url = https://github.com/nginx/njs
 [submodule "openssl"]
 	path = src/openssl
-	url = https://github.com/openssl/openssl
+	url = https://github.com/quictls/openssl
